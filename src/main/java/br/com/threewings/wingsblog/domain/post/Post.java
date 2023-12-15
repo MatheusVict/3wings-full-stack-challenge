@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 @ToString
 @RequiredArgsConstructor
 @Entity
+@AllArgsConstructor
+@Builder
 @Table(name = "posts")
 public class Post {
     @Id
