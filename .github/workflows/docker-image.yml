@@ -25,12 +25,12 @@ jobs:
           java-package: 'jdk'
           distribution: 'adopt'
 
-      - name: Build Book service Container Image
+      - name: Build 3 wings challenge Container Image
         run: mvn spring-boot:build-image -DskipTests
 
       - name: Push to Docker Hub Container Resgisty
         run: |
-          docker tag ${{ secrets.DOCKER_USERNAME }}/wings-blog:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/3wings-challenge:${{ github.run_id }}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/wings-blog:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/3wings-challenge:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/3wings-challenge:${{ github.run_id }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/3wings-challenge:latest
+          docker tag ${{ secrets.DOCKER_USERNAME }}/wings-blog:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/wings-blog:${{ github.run_id }}
+          docker tag ${{ secrets.DOCKER_USERNAME }}/wings-blog:0.0.1-SNAPSHOT ${{ secrets.DOCKER_USERNAME }}/wings-blog:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/wings-blog:${{ github.run_id }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/wings-blog:latest
