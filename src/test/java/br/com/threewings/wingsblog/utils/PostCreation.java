@@ -4,6 +4,7 @@ import br.com.threewings.wingsblog.domain.post.Post;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
 
 public class PostCreation {
     public static Post createValidPost() {
@@ -22,5 +23,9 @@ public class PostCreation {
                 .slug("post-title")
                 .content("Post Content")
                 .build();
+    }
+
+    public static List<Post> createValidPostList() {
+        return List.of(createValidPost());
     }
 }
