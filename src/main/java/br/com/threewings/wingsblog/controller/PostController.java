@@ -6,6 +6,7 @@ import br.com.threewings.wingsblog.dto.UpdatePostDTO;
 import br.com.threewings.wingsblog.service.PostService;
 import br.com.threewings.wingsblog.service.impl.PostServiceImpl;
 import br.com.threewings.wingsblog.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping
+    @Operation(summary = "Find all posts")
     @Tag(name = "Post")
     @OkResponse
     public ResponseEntity<List<Post>> findAll() {
@@ -30,6 +32,7 @@ public class PostController {
     }
 
     @PostMapping
+    @Operation(summary = "Save a post")
     @Tag(name = "Post")
     @CreatedResponse
     @ConflictResponse
@@ -40,6 +43,7 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Find a post by id")
     @Tag(name = "Post")
     @OkResponse
     @NotFoundResponse
@@ -48,6 +52,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update a post")
     @Tag(name = "Post")
     @NoContentResponse
     @NotFoundResponse
@@ -58,6 +63,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a post")
     @Tag(name = "Post")
     @NoContentResponse
     @NotFoundResponse
