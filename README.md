@@ -1,4 +1,4 @@
-# Desafio desenvolvedor full-stack 3wings (API)
+# Desafio desenvolvedor full-stack 3wings [API](https://3wings-full-stack-challenge-production.up.railway.app/swagger-ui/index.html#/)
 
 Uma API feita em Spring boot que realiza o gerenciamento de posts de blog, em forma de CRUD(Create, Read, Update, Delete)
 
@@ -23,7 +23,18 @@ Exemplo:
   
 ### Como rodar o projeto
 
-**OBS:** Para rodar você deve mudar as configurações do application.yml para suas configurações de banco ou passar as variáveis de ambiente
+**OBS:** Para rodar você deve mudar as configurações do ```application.yml``` que fica em ```main/resource``` para suas configurações de banco ou passar as variáveis de ambiente com as configurações do seu **MySQL**. Tenha certeza de que está tudo ligado e não esqueça de informar um banco existente.
+
+```yml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/<seu_banco_de_dados_criado>?useSSL=false&serverTimezone=UTC
+    username: <seu_usuário>
+    password: <sua_senha>
+  jpa:
+    hibernate:
+      ddl-auto: update
+```
 
 *Usando mvn*
 
